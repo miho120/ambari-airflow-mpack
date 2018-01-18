@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+       http://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<configuration supports_final="true">
+  <!--Configuration options for user authentication into the web application-->
+  <property>
+    <name>base_url</name>
+    <value>http://localhost:8080</value>
+    <display-name>Base URL</display-name>
+    <description>The base url of your website as airflow cannot guess what domain or cname you are using. This is used in automated emails that airflow sends to point links to the right web server.</description>
+  </property>
+  <property>
+    <name>web_server_host</name>
+    <value>0.0.0.0</value>
+    <display-name>The ip specified when starting the web server.</display-name>
+    <description></description>
+  </property>
+  <property>
+    <name>web_server_port</name>
+    <value>8080</value>
+    <display-name>Web server port</display-name>
+    <description>The port on which to run the web server.</description>
+  </property>
+  <property>
+    <name>web_server_ssl_cert</name>
+    <value></value>
+    <display-name>Web server ssl cert</display-name>
+    <description>Paths to the SSL certificate and key for the web server. When both are provided SSL will be enabled. This does not change the web server port.</description>
+    <value-attributes>
+      <empty-value-valid>true</empty-value-valid>
+    </value-attributes>
+  </property>
+  <property>
+    <name>web_server_ssl_key</name>
+    <value></value>
+    <display-name>Web server ssl key</display-name>
+    <description>Paths to the SSL certificate and key for the web server. When both are provided SSL will be enabled. This does not change the web server port.</description>
+    <value-attributes>
+      <empty-value-valid>true</empty-value-valid>
+    </value-attributes>
+  </property>
+  <property>
+    <name>web_server_worker_timeout</name>
+    <value>120</value>
+    <display-name>Web server worker timeout</display-name>
+    <description>Number of seconds the gunicorn webserver waits before timing out on a worker.</description>
+  </property>
+  <property>
+    <name>worker_refresh_batch_size</name>
+    <value>1</value>
+    <display-name>Worker refresh batch size</display-name>
+    <description>Number of workers to refresh at a time. When set to 0, worker refresh is disabled. When nonzero, airflow periodically refreshes webserver workers by bringing up new ones and killing old ones.</description>
+  </property>
+  <property>
+    <name>worker_refresh_interval</name>
+    <value>30</value>
+    <display-name>Worker refresh interval</display-name>
+    <description>Number of seconds to wait before refreshing a batch of workers.</description>
+  </property>
+  <property>
+    <name>secret_key</name>
+    <value>temporary_key</value>
+    <display-name>Secret key</display-name>
+    <description>Secret key used to run your flask app.</description>
+  </property>
+  <property>
+    <name>workers</name>
+    <value>4</value>
+    <display-name>Workers</display-name>
+    <description>Number of workers to run the Gunicorn web server.</description>
+  </property>
+  <property>
+    <name>worker_class</name>
+    <value>sync</value>
+    <display-name>Worker class</display-name>
+    <description>The worker class gunicorn should use. Choices include sync (default), eventlet, gevent.</description>
+  </property>
+  <property>
+    <name>access_logfile</name>
+    <value>-</value>
+    <display-name>Access logfile</display-name>
+    <description>Log files for the gunicorn webserver. '-' means log to stderr.</description>
+  </property>
+  <property>
+    <name>error_logfile</name>
+    <value>-</value>
+    <display-name>Error logfile</display-name>
+    <description>Log files for the gunicorn webserver. '-' means log to stderr.</description>
+  </property>
+  <property>
+    <name>expose_config</name>
+    <value>False</value>
+    <display-name>Expose config</display-name>
+    <description>Expose the configuration file in the web server.</description>
+  </property>
+  <property>
+    <name>authenticate</name>
+    <value>False</value>
+    <display-name>Authenticate</display-name>
+    <description>Set to true to turn on authentication: http://pythonhosted.org/airflow/security.html#web-authentication .</description>
+  </property>
+  <property>
+    <name>filter_by_owner</name>
+    <value>False</value>
+    <display-name>Filter by owner</display-name>
+    <description>Filter the list of dags by owner name (requires authentication to be enabled).</description>
+  </property>
+  <property>
+    <name>owner_mode</name>
+    <value>user</value>
+    <display-name>Owner mode</display-name>
+    <description>Filtering mode. Choices include user (default) and ldapgroup. Ldap group filtering requires using the ldap backend. Note that the ldap server needs the "memberOf" overlay to be set up in order to user the ldapgroup mode.</description>
+  </property>
+  <property>
+    <name>dag_default_view</name>
+    <value>tree</value>
+    <display-name>Dag default view</display-name>
+    <description>Default DAG view.  Valid values are: tree, graph, duration, gantt, landing_times.</description>
+  </property>
+  <property>
+    <name>dag_orientation</name>
+    <value>LR</value>
+    <display-name>Dag orientation</display-name>
+    <description>Default DAG orientation. Valid values are: LR (Left->Right), TB (Top->Bottom), RL (Right->Left), BT (Bottom->Top).</description>
+  </property>
+  <property>
+    <name>demo_mode</name>
+    <value>False</value>
+    <display-name>Demo mode</display-name>
+    <description>Puts the webserver in demonstration mode; blurs the names of Operators for privacy.</description>
+  </property>
+  <property>
+    <name>log_fetch_timeout_sec</name>
+    <value>5</value>
+    <display-name>Log fetch timeout sec</display-name>
+    <description>The amount of time (in secs) webserver will wait for initial handshake while fetching logs from other worker machine.</description>
+  </property>
+  <property>
+    <name>hide_paused_dags_by_default</name>
+    <value>False</value>
+    <display-name>Hide paused dags by default</display-name>
+    <description>By default, the webserver shows paused DAGs. Flip this to hide paused DAGs by default.</description>
+  </property>
+  <property>
+    <name>page_size</name>
+    <value>100</value>
+    <display-name>Page size</display-name>
+    <description>Consistent page size across all listing views in the UI.</description>
+  </property>
+
+</configuration>

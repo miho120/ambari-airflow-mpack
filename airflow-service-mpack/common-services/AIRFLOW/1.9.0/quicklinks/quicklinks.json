@@ -1,0 +1,26 @@
+{
+  "name": "default",
+  "description": "default quick links configuration",
+  "configuration": {
+    "protocol": {
+      "type":"HTTP_ONLY"
+    },
+    "links": [
+      {
+        "name": "airflow_ui",
+        "label": "Airflow WEB-UI",
+        "requires_user_name": "false",
+        "component_name": "AIRFLOW_SERVER",
+        "url":"%@://%@:%@/",
+        "port":{
+          "http_property": "web_server_port",
+          "http_default_port": "8080",
+          "https_property": "web_server_port",
+          "https_default_port": "8080",
+          "regex": "^(\\d+)$",
+          "site": "airflow-webserwer-site"
+        }
+      }
+    ]
+  }
+}

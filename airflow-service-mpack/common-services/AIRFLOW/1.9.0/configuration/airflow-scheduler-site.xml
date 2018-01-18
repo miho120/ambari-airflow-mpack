@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+       http://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<configuration supports_final="true">
+  <!--Configuration options for user authentication into the web application-->
+  <property>
+    <name>job_heartbeat_sec</name>
+    <value>5</value>
+    <display-name>Job heartbeat sec</display-name>
+    <description>Task instances listen for external kill signal (when you clear tasks from the CLI or the UI), this defines the frequency at which they should listen (in seconds).</description>
+  </property>
+  <property>
+    <name>scheduler_heartbeat_sec</name>
+    <value>5</value>
+    <display-name>Scheduler heartbeat sec</display-name>
+    <description>The scheduler constantly tries to trigger new tasks (look at the scheduler section in the docs for more information). This defines how often the scheduler should run (in seconds).</description>
+  </property>
+  <property>
+    <name>run_duration</name>
+    <value>-1</value>
+    <display-name>Run duration</display-name>
+    <description>After how much time should the scheduler terminate in seconds. -1 indicates to run continuously (see also num_runs).</description>
+  </property>
+  <property>
+    <name>min_file_process_interval</name>
+    <value>0</value>
+    <display-name>Min file process interval</display-name>
+    <description>After how much time a new DAGs should be picked up from the filesystem.</description>
+  </property>
+  <property>
+    <name>dag_dir_list_interval</name>
+    <value>300</value>
+    <display-name>Dag dir list interval</display-name>
+    <description>Dag dir list interval.</description>
+  </property>
+  <property>
+    <name>print_stats_interval</name>
+    <value>30</value>
+    <display-name>Print stats interval</display-name>
+    <description>How often should stats be printed to the logs.</description>
+  </property>
+  <property>
+    <name>child_process_log_directory</name>
+    <value>/usr/local/airflow/config/logs/scheduler</value>
+    <display-name>Child process log directory</display-name>
+    <description>Child process log directory.</description>
+  </property>
+  <property>
+    <name>scheduler_zombie_task_threshold</name>
+    <value>300</value>
+    <display-name>Scheduler zombie task threshold</display-name>
+    <description>Local task jobs periodically heartbeat to the DB. If the job has not heartbeat in this many seconds, the scheduler will mark the associated task instance as failed and will re-schedule the task.</description>
+  </property>
+  <property>
+    <name>catchup_by_default</name>
+    <value>True</value>
+    <display-name>Catchup by default</display-name>
+    <description>Turn off scheduler catchup by setting this to False. Default behavior is unchanged and Command Line Backfills still work, but the scheduler will not do scheduler catchup if this is False, however it can be set on a per DAG basis in the DAG definition (catchup).</description>
+  </property>
+  <property>
+    <name>max_tis_per_query</name>
+    <value>0</value>
+    <display-name>Max tis per query</display-name>
+    <description>This changes the batch size of queries in the scheduling main loop. This depends on query length limits and how long you are willing to hold locks. 0 for no limit.</description>
+  </property>
+  <property>
+    <name>statsd_on</name>
+    <value>False</value>
+    <display-name>Statsd on</display-name>
+    <description>Statsd (https://github.com/etsy/statsd) integration settings.</description>
+  </property>
+  <property>
+    <name>statsd_host</name>
+    <value>localhost</value>
+    <display-name>Statsd host</display-name>
+    <description>Statsd (https://github.com/etsy/statsd) integration settings.</description>
+  </property>
+  <property>
+    <name>statsd_port</name>
+    <value>8125</value>
+    <display-name>Statsd port</display-name>
+    <description>Statsd (https://github.com/etsy/statsd) integration settings.</description>
+  </property>
+  <property>
+    <name>statsd_prefix</name>
+    <value>airflow</value>
+    <display-name>Statsd prefix</display-name>
+    <description>Statsd (https://github.com/etsy/statsd) integration settings.</description>
+  </property>
+  <property>
+    <name>max_threads</name>
+    <value>2</value>
+    <display-name>Max threads</display-name>
+    <description>The scheduler can run multiple threads in parallel to schedule dags. This defines how many threads will run.</description>
+  </property>
+  <property>
+    <name>scheduler_authenticate</name>
+    <value>False</value>
+    <display-name>Authenticate</display-name>
+    <description>Authenticate.</description>
+  </property>
+</configuration>

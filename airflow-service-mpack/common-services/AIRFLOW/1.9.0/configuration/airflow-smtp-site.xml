@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+       http://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<configuration supports_final="true">
+  <!--Configuration options for user authentication into the web application-->
+  <property>
+    <name>smtp_host</name>
+    <value>localhost</value>
+    <display-name>SMTP host</display-name>
+    <description>If you want airflow to send emails on retries, failure, and you want to use the airflow.utils.email.send_email_smtp function, you have to configure an smtp server here.</description>
+  </property>
+  <property>
+    <name>smtp_starttls</name>
+    <value>True</value>
+    <display-name>SMTP starttls</display-name>
+    <description>If you want airflow to send emails on retries, failure, and you want to use the airflow.utils.email.send_email_smtp function, you have to configure an smtp server here.</description>
+  </property>
+  <property>
+    <name>smtp_ssl</name>
+    <value>False</value>
+    <display-name>SMTP SSL</display-name>
+    <description>If you want airflow to send emails on retries, failure, and you want to use the airflow.utils.email.send_email_smtp function, you have to configure an smtp server here.</description>
+  </property>
+  <property>
+    <name>smtp_user</name>
+    <value>airflow</value>
+    <display-name>SMTP user</display-name>
+    <description>If you want airflow to send emails on retries, failure, and you want to use the airflow.utils.email.send_email_smtp function, you have to configure an smtp server here.</description>
+  </property>
+  <property>
+    <name>smtp_password</name>
+    <value>airflow</value>
+    <display-name>SMTP password</display-name>
+    <description>If you want airflow to send emails on retries, failure, and you want to use the airflow.utils.email.send_email_smtp function, you have to configure an smtp server here.</description>
+  </property>
+  <property>
+    <name>smtp_port</name>
+    <value>25</value>
+    <display-name>SMTP port</display-name>
+    <description>If you want airflow to send emails on retries, failure, and you want to use the airflow.utils.email.send_email_smtp function, you have to configure an smtp server here.</description>
+  </property>
+  <property>
+    <name>smtp_mail_from</name>
+    <value>airflow@example.com</value>
+    <display-name>SMTP mail from</display-name>
+    <description>If you want airflow to send emails on retries, failure, and you want to use the airflow.utils.email.send_email_smtp function, you have to configure an smtp server here.</description>
+  </property>
+</configuration>

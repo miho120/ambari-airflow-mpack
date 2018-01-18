@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+       http://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<configuration supports_final="true">
+  <!--Configuration options for user authentication into the web application-->
+  <property>
+    <name>mesos_master</name>
+    <value>localhost:5050</value>
+    <display-name>Master</display-name>
+    <description>Mesos master address which MesosExecutor will connect to.</description>
+  </property>
+  <property>
+    <name>mesos_framework_name</name>
+    <value>Airflow</value>
+    <display-name>Framework name</display-name>
+    <description>The framework name which Airflow scheduler will register itself as on mesos.</description>
+  </property>
+  <property>
+    <name>mesos_task_cpu</name>
+    <value>1</value>
+    <display-name>Task CPU</display-name>
+    <description>Number of cpu cores required for running one task instance using 'airflow run dag_id task_id execution_date --local -p pickle_id' command on a mesos slave.</description>
+  </property>
+  <property>
+    <name>mesos_task_memory</name>
+    <value>256</value>
+    <display-name>Task memory</display-name>
+    <description>Memory in MB required for running one task instance using 'airflow run dag_id task_id execution_date --local -p pickle_id' command on a mesos slave.</description>
+  </property>
+  <property>
+    <name>mesos_checkpoint</name>
+    <value>False</value>
+    <display-name>Checkpoint</display-name>
+    <description>Enable framework checkpointing for mesos. See http://mesos.apache.org/documentation/latest/slave-recovery/.</description>
+  </property>
+  <property>
+    <name>mesos_failover_timeout</name>
+    <value>604800</value>
+    <display-name>Failover timeout</display-name>
+    <description>Failover timeout in milliseconds. When checkpointing is enabled and this option is set, Mesos waits until the configured timeout for the MesosExecutor framework to re-register after a failover. Mesos shuts down running tasks if the MesosExecutor framework fails to re-register within this timeframe.</description>
+  </property>
+  <property>
+    <name>mesos_authenticate</name>
+    <value>False</value>
+    <display-name>Authenticate</display-name>
+    <description>Enable framework authentication for mesos. See http://mesos.apache.org/documentation/latest/configuration/.</description>
+  </property>
+  <property>
+    <name>mesos_default_principal</name>
+    <value>admin</value>
+    <display-name>Default principal</display-name>
+    <description>Mesos credentials, if authentication is enabled.</description>
+  </property>
+  <property>
+    <name>mesos_default_secret</name>
+    <value>admin</value>
+    <display-name>Default secret</display-name>
+    <description>Mesos credentials, if authentication is enabled.</description>
+  </property>
+</configuration>

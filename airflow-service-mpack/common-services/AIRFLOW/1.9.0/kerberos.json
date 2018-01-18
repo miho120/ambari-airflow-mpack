@@ -1,0 +1,17 @@
+{
+  "services": [
+    {
+      "name": "AIRFLOW",
+      "identities": [
+        {
+          "name": "/smokeuser"
+        }
+      ],
+      "components": [
+        {
+          "name": "AIRFLOW_SERVER"
+        }
+      ]
+    }
+  ]
+}
