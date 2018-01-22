@@ -1,1 +1,2 @@
 airflow-service-mpack.tar.gz filter=lfs diff=lfs merge=lfs -text
+airflow-service-mpack/common-services/AIRFLOW/1.9.0/package/scripts/airflow_install.py filter=lfs diff=lfs merge=lfs -text
