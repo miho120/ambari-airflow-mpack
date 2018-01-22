@@ -8,12 +8,12 @@ Airflow version included: 1.9.0
 
 #### Installing Aiflow Mpack:
 1. Stop Ambari server.
-2. Deploy the Example MPack on Ambari server.
+2. Install the Airflow Mpack on Ambari server.
 3. Start Ambari server.
 
 ```
-ambari-server install-mpack --mpack=airflow-service-mpack.tar.gz
 ambari-server stop
+ambari-server install-mpack --mpack=airflow-service-mpack.tar.gz
 ambari-server start
 ```
 
