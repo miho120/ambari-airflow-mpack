@@ -24,12 +24,12 @@ ambari-server start
 4. You may configure Airflow, change installation folder.
 5. Deploy!
 
-![Add service](/screeshots/1.PNG)
-![Select Airflow service](/screeshots/2.PNG)
-![Choose destination server](/screeshots/3.PNG)
-![configure Airflow](/screeshots/4.PNG)
-![Deploy](/screeshots/5.PNG)
-![Deploy](/screeshots/6.PNG)
-![Deploy](/screeshots/7.PNG)
-![Deploy](/screeshots/8.PNG)
-![Deploy](/screeshots/9.PNG)
+![Add service](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/1.PNG)
+![Select Airflow service](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/2.PNG)
+![Choose destination server](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/3.PNG)
+![configure Airflow](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/4.PNG)
+![Deploy](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/5.PNG)
+![Deploy](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/6.PNG)
+![Deploy](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/7.PNG)
+![Deploy](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/8.PNG)
+![Deploy](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/9.PNG)
