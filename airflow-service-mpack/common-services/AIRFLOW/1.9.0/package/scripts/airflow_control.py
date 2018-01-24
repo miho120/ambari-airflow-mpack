@@ -16,7 +16,7 @@ class AirflowServer(Script):
 		Logger.info(format("Installing Airflow Service"))
 		airflow_install(params.airflow_install_dir)
 		airflow_afterinstall_setup()
-		Execute(format("replace '***CHANGETHIS***' '{airflow_install_dir}/airflow' -- {airflow_install_dir}/airflow/bin/activ*"),
+		Execute(format("sed -i 's+\*\*\*CHANGETHIS\*\*\*+{airflow_install_dir}/airflow+g' {airflow_install_dir}/airflow/bin/activ*"),
 			user=params.airflow_user
 		)
 		Execute(format("source {airflow_install_dir}/airflow/bin/activate && export AIRFLOW_HOME={airflow_home} && airflow initdb"),
