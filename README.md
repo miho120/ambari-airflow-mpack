@@ -33,7 +33,6 @@ ambari-server start
 ![Deploy](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/6.PNG)
 ![Deploy](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/7.PNG)
 ![Deploy](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/8.PNG)
-![Deploy](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/9.PNG)
 ![Deploy](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/10.PNG)
 
 
