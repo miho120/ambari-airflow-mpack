@@ -17,7 +17,7 @@ ambari-server install-mpack --mpack=airflow-service-mpack.tar.gz
 ambari-server start
 ```
 
-### Installing ApacheAirflow from Ambari:
+### Installing Apache Airflow from Ambari:
 1. Action - Add service.
 2. Select Apache Airflow service.
 3. Choose destination server.
@@ -27,12 +27,14 @@ ambari-server start
 ![Add service](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/1.PNG)
 ![Select Apache Airflow service](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/2.PNG)
 ![Choose destination server](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/3.PNG)
+![Choose destination server](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/3-1.PNG)
 ![configure Apache Airflow](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/4.PNG)
 ![Deploy](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/5.PNG)
 ![Deploy](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/6.PNG)
 ![Deploy](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/7.PNG)
 ![Deploy](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/8.PNG)
 ![Deploy](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/9.PNG)
+![Deploy](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/10.PNG)
 
 
 ### Enjoy!
