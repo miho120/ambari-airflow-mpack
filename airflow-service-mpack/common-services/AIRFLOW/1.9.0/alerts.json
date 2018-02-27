@@ -1,7 +1,7 @@
 {
   "AIRFLOW": {
     "service": [],
-    "AIRFLOW_SERVER": [
+    "AIRFLOW_WEBSERVER": [
       {
         "name": "airflow_webui",
         "label": "Airflow Web UI",

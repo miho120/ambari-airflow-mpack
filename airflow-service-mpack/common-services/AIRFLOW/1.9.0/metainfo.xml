@@ -25,12 +25,34 @@
 			<version>1.9.0</version>
 			<components>
 				<component>
-					<name>AIRFLOW_SERVER</name>
-					<displayName>Airflow Server</displayName>
+					<name>AIRFLOW_WEBSERVER</name>
+					<displayName>Airflow Webserver</displayName>
 					<category>MASTER</category>
 					<cardinality>1+</cardinality>
 					<commandScript>
-						<script>scripts/airflow_control.py</script>
+						<script>scripts/airflow_webserver_control.py</script>
+						<scriptType>PYTHON</scriptType>
+						<timeout>1200</timeout>
+					</commandScript>
+				</component>
+				<component>
+					<name>AIRFLOW_SCHEDULER</name>
+					<displayName>Airflow Scheduler</displayName>
+					<category>MASTER</category>
+					<cardinality>1+</cardinality>
+					<commandScript>
+						<script>scripts/airflow_scheduler_control.py</script>
+						<scriptType>PYTHON</scriptType>
+						<timeout>1200</timeout>
+					</commandScript>
+				</component>
+				<component>
+					<name>AIRFLOW_WORKER</name>
+					<displayName>Airflow Worker</displayName>
+					<category>SLAVE</category>
+					<cardinality>1+</cardinality>
+					<commandScript>
+						<script>scripts/airflow_worker_control.py</script>
 						<scriptType>PYTHON</scriptType>
 						<timeout>1200</timeout>
 					</commandScript>
@@ -46,6 +68,12 @@
 						<package><name>sqlite-devel</name></package>
 						<package><name>openssl-devel</name></package>
 						<package><name>mysql-devel</name></package>
+						<package><name>python-pip</name></package>
+						<package><name>zlib-devel</name></package>
+						<package><name>bzip2-devel</name></package>
+						<package><name>ncurses-devel</name></package>
+						<package><name>wget</name></package>
+						<package><name>cyrus-sasl-devel</name></package>
 					</packages>
 				</osSpecific>
 				<osSpecific>
@@ -55,8 +83,15 @@
 						<package><name>libssl-dev</name></package>
 						<package><name>libkrb5-dev</name></package>
 						<package><name>openssl-dev</name></package>
-						<package><name>python-dev</name></package>		   
+						<package><name>python-dev</name></package>	
+						<package><name>python-pip</name></package>	   
 						<package><name>build-essential</name></package>
+						<package><name>python-pip</name></package>
+						<package><name>libghc-zlib-dev</name></package>
+						<package><name>libzip-dev</name></package>
+						<package><name>libncurses5-dev</name></package>
+						<package><name>wget</name></package>
+						<package><name>libsasl2-dev</name></package>
 					</packages>
 				</osSpecific>
 			</osSpecifics>

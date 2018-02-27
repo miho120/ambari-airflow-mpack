@@ -9,7 +9,13 @@
       ],
       "components": [
         {
-          "name": "AIRFLOW_SERVER"
+          "name": "AIRFLOW_WEBSERVER"
+        },
+        {
+          "name": "AIRFLOW_SCHEDULER"
+        },
+        {
+          "name": "AIRFLOW_WORKER"
         }
       ]
     }

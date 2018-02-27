@@ -10,7 +10,7 @@
         "name": "airflow_ui",
         "label": "Airflow WEB-UI",
         "requires_user_name": "false",
-        "component_name": "AIRFLOW_SERVER",
+        "component_name": "AIRFLOW_WEBSERVER",
         "url":"%@://%@:%@/",
         "port":{
           "http_property": "web_server_port",

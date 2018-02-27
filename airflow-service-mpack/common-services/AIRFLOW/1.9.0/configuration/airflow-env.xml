@@ -17,17 +17,6 @@
 -->
 <configuration>
   <!--Configuration options for user authentication into the web application-->
-  <property>
-    <name>airflow_install_dir</name>
-    <value>/usr/local</value>
-    <display-name>Airflow install folder</display-name>
-    <description>The home folder where airflow will be installed.</description>
-    <value-attributes>
-      <overridable>false</overridable>
-      <editable-only-at-install>true</editable-only-at-install>
-    </value-attributes>
-    <on-ambari-upgrade add="true"/>
-  </property>
 
   <property>
     <name>airflow_user</name>
@@ -44,9 +33,23 @@
     <on-ambari-upgrade add="true"/>
   </property>
   <property>
-    <name>airflow_pid_file</name>
-    <value>/usr/local/airflow/config/airflow-webserver.pid</value>
-    <display-name>Airflow PID file</display-name>
+    <name>airflow_webserver_pid_file</name>
+    <value>/usr/local/airflow/airflow-webserver.pid</value>
+    <display-name>Airflow webserver PID file</display-name>
+    <description></description>
+    <on-ambari-upgrade add="true"/>
+  </property>
+  <property>
+    <name>airflow_scheduler_pid_file</name>
+    <value>/usr/local/airflow/airflow-scheduler.pid</value>
+    <display-name>Airflow scheduler PID file</display-name>
+    <description></description>
+    <on-ambari-upgrade add="true"/>
+  </property>
+  <property>
+    <name>airflow_worker_pid_file</name>
+    <value>/usr/local/airflow/airflow-worker.pid</value>
+    <display-name>Airflow worker PID file</display-name>
     <description></description>
     <on-ambari-upgrade add="true"/>
   </property>

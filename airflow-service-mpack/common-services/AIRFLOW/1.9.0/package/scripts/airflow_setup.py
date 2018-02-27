@@ -8,15 +8,6 @@ from resource_management.core.shell import call
 from resource_management.core.system import System
 from resource_management.libraries.functions.default import default
 
-def airflow_afterinstall_setup():
-	"""
-	Creates Airflow user home directory and sets up the correct ownership.
-	"""
-	import params
-
-	Execute('id -u {0} &>/dev/null || useradd {0}'.format(params.airflow_user))
-	Execute('chown -R {0}:{1} {2}'.format(params.airflow_user,params.airflow_group,params.airflow_install_dir + "/airflow"))
-
 def airflow_configure(env):
 	import params
 	env.set_params(params)

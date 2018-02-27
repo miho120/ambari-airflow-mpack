@@ -20,10 +20,14 @@ import functools
 # a map of the Ambari role to the component name
 # for use with <stack-root>/current/<component>
 SERVER_ROLE_DIRECTORY_MAP = {
-  'AIRFLOW_SERVER' : 'airflow-server',
+  'AIRFLOW_WEBSERVER' : 'airflow-webserver',
+  'AIRFLOW_SCHEDULER' : 'airflow-scheduler',
+  'AIRFLOW_WORKER' : 'airflow-worker'
 }
 
-component_directory = Script.get_component_from_role(SERVER_ROLE_DIRECTORY_MAP, "AIRFLOW_SERVER")
+component_directory_web = Script.get_component_from_role(SERVER_ROLE_DIRECTORY_MAP, "AIRFLOW_WEBSERVER")
+component_directory_sched = Script.get_component_from_role(SERVER_ROLE_DIRECTORY_MAP, "AIRFLOW_SCHEDULER")
+component_directory_work = Script.get_component_from_role(SERVER_ROLE_DIRECTORY_MAP, "AIRFLOW_WORKER")
 config = Script.get_config()
 tmp_dir = Script.get_tmp_dir()
 stack_root = Script.get_stack_root()
@@ -35,10 +39,11 @@ service_packagedir = os.path.realpath(__file__).split('/scripts')[0]
 cluster_name = str(config['clusterName'])
 ambari_server_hostname = config['clusterHostInfo']['ambari_server_host'][0]
 
-airflow_install_dir = config['configurations']['airflow-env']['airflow_install_dir']
 airflow_user = config['configurations']['airflow-env']['airflow_user']
 airflow_group = config['configurations']['airflow-env']['airflow_group']
-airflow_pid_file = config['configurations']['airflow-env']['airflow_pid_file']
+airflow_webserver_pid_file = config['configurations']['airflow-env']['airflow_webserver_pid_file']
+airflow_scheduler_pid_file = config['configurations']['airflow-env']['airflow_scheduler_pid_file']
+airflow_worker_pid_file = config['configurations']['airflow-env']['airflow_worker_pid_file']
 
 #[core]
 airflow_home = config['configurations']['airflow-core-site']['airflow_home']

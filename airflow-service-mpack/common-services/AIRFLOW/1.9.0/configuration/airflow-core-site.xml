@@ -20,20 +20,20 @@
 
   <property>
     <name>airflow_home</name>
-    <value>/usr/local/airflow/config</value>
+    <value>/usr/local/airflow</value>
     <display-name>Airflow home</display-name>
-    <description>The home folder for airflow, default is airflow_install_dir/airflow/config.</description>
+    <description>The home folder for airflow, default is airflow_install_dir/airflow.</description>
   </property>
 
   <property>
     <name>dags_folder</name>
-    <value>/usr/local/airflow/config/dags</value>
+    <value>/usr/local/airflow/dags</value>
     <display-name>Dags folder</display-name>
     <description>The folder where your airflow pipelines live, most likely a subfolder in a code repository.</description>
   </property>
   <property>
     <name>base_log_folder</name>
-    <value>/usr/local/airflow/config/logs</value>
+    <value>/usr/local/airflow/logs</value>
     <display-name>Base log folder</display-name>
     <description>The folder where airflow should store its log files.</description>
   </property>
@@ -88,7 +88,7 @@
 
   <property>
     <name>sql_alchemy_conn</name>
-    <value>sqlite:////usr/local/airflow/config/airflow.db</value>
+    <value>sqlite:////usr/local/airflow/airflow.db</value>
     <display-name>SQL alchemy connection</display-name>
     <description>The SqlAlchemy connection string to the metadata database. SqlAlchemy supports many different database engine, more information their website.</description>
   </property>
@@ -142,7 +142,7 @@
   </property>
   <property>
     <name>plugins_folder</name>
-    <value>/usr/local/airflow/config/plugins</value>
+    <value>/usr/local/airflow/plugins</value>
     <display-name>Plugins folder</display-name>
     <description>Where your Airflow plugins are stored.</description>
   </property>
