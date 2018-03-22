@@ -20,7 +20,7 @@ ambari-server start
 1. Action - Add service.
 2. Select Apache Airflow service.
 3. Choose destination server.
-4. You may configure Apache Airflow, change installation folder.
+4. You may configure Apache Airflow, change home folder.
 5. Deploy!
 
 ![Add service](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/1.PNG)
