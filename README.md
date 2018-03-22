@@ -2,7 +2,6 @@
 
 Apache Airflow mpack for ambari.
 Mpack allows you to install/configure airflow directly from ambari.
-Apache Airflow installation from this Mpack doesn't require internet connection on your server.
 
 Apache Airflow version included: 1.9.0
 
