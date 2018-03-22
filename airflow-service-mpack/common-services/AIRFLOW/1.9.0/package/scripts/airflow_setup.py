@@ -8,6 +8,128 @@ from resource_management.core.shell import call
 from resource_management.core.system import System
 from resource_management.libraries.functions.default import default
 
+def airflow_make_systemd_scripts_webserver(env):
+	import params
+	env.set_params(params)
+
+	confFileText = format("""[Unit]
+Description=Airflow webserver daemon
+After=network.target postgresql.service mysql.service redis.service rabbitmq-server.service
+Wants=postgresql.service mysql.service redis.service rabbitmq-server.service
+
+[Service]
+EnvironmentFile=/etc/sysconfig/airflow
+User={airflow_user}
+Group={airflow_group}
+Type=simple
+ExecStart={airflow_home}/airflow_control.sh webserver
+Restart=on-failure
+RestartSec=5s
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+
+""")
+
+	with open("/etc/systemd/system/multi-user.target.wants/airflow-webserver.service", 'w') as configFile:
+		configFile.write(confFileText)
+	configFile.close()
+
+	confFileText = format("AIRFLOW_HOME={airflow_home}")
+
+	with open("/etc/sysconfig/airflow", 'w') as configFile:
+		configFile.write(confFileText)
+	configFile.close()
+
+	Execute("systemctl daemon-reload")
+
+def airflow_make_systemd_scripts_scheduler(env):
+	import params
+	env.set_params(params)
+
+	confFileText = format("""[Unit]
+Description=Airflow scheduler daemon
+After=network.target postgresql.service mysql.service redis.service rabbitmq-server.service
+Wants=postgresql.service mysql.service redis.service rabbitmq-server.service
+
+[Service]
+EnvironmentFile=/etc/sysconfig/airflow
+User={airflow_user}
+Group={airflow_group}
+Type=simple
+ExecStart={airflow_home}/airflow_control.sh scheduler
+Restart=on-failure
+RestartSec=5s
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+
+""")
+
+	with open("/etc/systemd/system/multi-user.target.wants/airflow-scheduler.service", 'w') as configFile:
+		configFile.write(confFileText)
+	configFile.close()
+
+	confFileText = format("AIRFLOW_HOME={airflow_home}")
+
+	with open("/etc/sysconfig/airflow", 'w') as configFile:
+		configFile.write(confFileText)
+	configFile.close()
+
+	Execute("systemctl daemon-reload")
+
+def airflow_make_systemd_scripts_worker(env):
+	import params
+	env.set_params(params)
+
+	confFileText = format("""[Unit]
+Description=Airflow worker daemon
+After=network.target postgresql.service mysql.service redis.service rabbitmq-server.service
+Wants=postgresql.service mysql.service redis.service rabbitmq-server.service
+
+[Service]
+EnvironmentFile=/etc/sysconfig/airflow
+User={airflow_user}
+Group={airflow_group}
+Type=simple
+ExecStart={airflow_home}/airflow_control.sh worker
+Restart=on-failure
+RestartSec=5s
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+
+""")
+
+	with open("/etc/systemd/system/multi-user.target.wants/airflow-worker.service", 'w') as configFile:
+		configFile.write(confFileText)
+	configFile.close()
+
+	confFileText = format("AIRFLOW_HOME={airflow_home}")
+
+	with open("/etc/sysconfig/airflow", 'w') as configFile:
+		configFile.write(confFileText)
+	configFile.close()
+
+	Execute("systemctl daemon-reload")
+
+def airflow_make_startup_script(env):
+	import params
+	env.set_params(params)
+
+	confFileText = format("""#!/bin/bash
+
+export AIRFLOW_HOME={airflow_home} && /usr/bin/airflow $1 --pid {airflow_home}/airflow-sys-$1.pid
+""")
+
+	with open(format("{airflow_home}/airflow_control.sh"), 'w') as configFile:
+		configFile.write(confFileText)
+	configFile.close()
+	Execute(format("chmod 755 {airflow_home}/airflow_control.sh"))
+
 def airflow_configure(env):
 	import params
 	env.set_params(params)

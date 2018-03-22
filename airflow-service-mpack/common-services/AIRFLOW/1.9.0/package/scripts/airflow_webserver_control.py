@@ -14,6 +14,7 @@ class AirflowWebserver(Script):
 		self.install_packages(env)
 		Logger.info(format("Installing Airflow Service"))
 		Execute(format("pip install apache-airflow[all]==1.9.0 apache-airflow[celery]==1.9.0"))
+		Execute(format("useradd {airflow_user}"), ignore_failures=True)
 		Execute(format("mkdir -p {airflow_home} && chown -R {airflow_user}:{airflow_group} {airflow_home}"))
 		Execute(format("export AIRFLOW_HOME={airflow_home} && airflow initdb"),
 			user=params.airflow_user
@@ -23,21 +24,19 @@ class AirflowWebserver(Script):
 		import params
 		env.set_params(params)
 		airflow_configure(env)
+		airflow_make_systemd_scripts_webserver(env)
 		
 	def start(self, env):
 		import params
 		self.configure(env)
-		Execute(format("export AIRFLOW_HOME={airflow_home} && airflow webserver &"),
-			user=params.airflow_user
-		)
+		Execute("service airflow-webserver start")
 		Execute ('ps -ef | grep "airflow webserver" | grep -v grep | awk \'{print $2}\' | tail -n 1 > ' + params.airflow_webserver_pid_file, user=params.airflow_user)
 
 	def stop(self, env):
 		import params
 		env.set_params(params)
 		# Kill the process of Airflow
-		Execute ('ps -ef | grep airflow-webserver | grep -v grep | awk	\'{print $2}\' | xargs kill -9', user=params.airflow_user, ignore_failures=True)
-		Execute ('ps -ef | grep "airflow webserver" | grep -v grep | awk	\'{print $2}\' | xargs kill -9', user=params.airflow_user, ignore_failures=True)
+		Execute("service airflow-webserver stop")
 		File(params.airflow_webserver_pid_file,
 			action = "delete",
 			owner = params.airflow_user

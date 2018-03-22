@@ -14,6 +14,7 @@ class AirflowScheduler(Script):
 		self.install_packages(env)
 		Logger.info(format("Installing Airflow Service"))
 		Execute(format("pip install apache-airflow[all]==1.9.0 apache-airflow[celery]==1.9.0"))
+		Execute(format("useradd {airflow_user}"), ignore_failures=True)
 		Execute(format("mkdir -p {airflow_home} && chown -R {airflow_user}:{airflow_group} {airflow_home}"))
 		Execute(format("export AIRFLOW_HOME={airflow_home} && airflow initdb"),
 			user=params.airflow_user
@@ -23,20 +24,19 @@ class AirflowScheduler(Script):
 		import params
 		env.set_params(params)
 		airflow_configure(env)
+		airflow_make_systemd_scripts_scheduler(env)
 		
 	def start(self, env):
 		import params
 		self.configure(env)
-		Execute(format("export AIRFLOW_HOME={airflow_home} && airflow scheduler &"),
-			user=params.airflow_user
-		)
+		Execute("service airflow-scheduler start")
 		Execute ('ps -ef | grep "airflow scheduler" | grep -v grep | awk \'{print $2}\' | tail -n 1 > ' + params.airflow_scheduler_pid_file, user=params.airflow_user)
 
 	def stop(self, env):
 		import params
 		env.set_params(params)
 		# Kill the process of Airflow
-		Execute ('ps -ef | grep "airflow scheduler" | grep -v grep | awk	\'{print $2}\' | xargs kill -9', user=params.airflow_user, ignore_failures=True)
+		Execute("service airflow-scheduler stop")
 		File(params.airflow_scheduler_pid_file,
 			action = "delete",
 			owner = params.airflow_user

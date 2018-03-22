@@ -14,6 +14,7 @@ class AirflowWorker(Script):
 		self.install_packages(env)
 		Logger.info(format("Installing Airflow Service"))
 		Execute(format("pip install apache-airflow[all]==1.9.0 apache-airflow[celery]==1.9.0"))
+		Execute(format("useradd {airflow_user}"), ignore_failures=True)
 		Execute(format("mkdir -p {airflow_home} && chown -R {airflow_user}:{airflow_group} {airflow_home}"))
 		Execute(format("export AIRFLOW_HOME={airflow_home} && airflow initdb"),
 			user=params.airflow_user
@@ -23,18 +24,20 @@ class AirflowWorker(Script):
 		import params
 		env.set_params(params)
 		airflow_configure(env)
+		airflow_make_systemd_scripts_worker(env)
 		
 	def start(self, env):
 		import params
 		self.configure(env)
-		Execute(format("export AIRFLOW_HOME={airflow_home} && airflow worker &"))
+		Execute("service airflow-worker start")
+		time.sleep(10)
 		Execute ('ps -ef | grep "airflow serve_logs" | grep -v grep | awk \'{print $2}\' > ' + params.airflow_worker_pid_file)
 
 	def stop(self, env):
 		import params
 		env.set_params(params)
 		# Kill the process of Airflow
-		Execute ('ps -ef | grep "airflow serve_logs" | grep -v grep | awk	\'{print $2}\' | xargs kill -9', ignore_failures=True)
+		Execute("service airflow-worker stop")
 		File(params.airflow_worker_pid_file,
 			action = "delete"
 		)
