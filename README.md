@@ -35,5 +35,14 @@ ambari-server start
 ![Deploy](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/8.PNG)
 ![Deploy](https://github.com/miho120/ambari-airflow-mpack/blob/master/Screenshots/10.PNG)
 
+#### Virtual environment support
+If you want to run apache airflow in virtual environment, you should modify startup script "AIRFLOW_HOME/airflow_control.sh".
+
+Example:
+```
+#!/bin/bash
+
+export AIRFLOW_HOME=/usr/local/airflow/airflow/ && source /usr/local/airflow/airflow_venv/airflow/bin/activate && /usr/local/airflow/airflow_venv/airflow/bin/airflow $1 --pid /usr/local/airflow/airflow/airflow-sys-$1.pid
+```
 
 ### Enjoy!
