@@ -53,5 +53,17 @@
     <description></description>
     <on-ambari-upgrade add="true"/>
   </property>
+  <property>
+    <name>airflow_pip_params</name>
+    <value></value>
+    <display-name>Advanced pip installation parameters</display-name>
+    <description>Advanced parameters for pip cmd, e.g.: --index-url https://link --trusted-host host</description>
+    <value-attributes>
+      <overridable>false</overridable>
+      <editable-only-at-install>true</editable-only-at-install>
+      <empty-value-valid>true</empty-value-valid>
+    </value-attributes>
+    <on-ambari-upgrade add="true"/>
+  </property>
 
 </configuration>

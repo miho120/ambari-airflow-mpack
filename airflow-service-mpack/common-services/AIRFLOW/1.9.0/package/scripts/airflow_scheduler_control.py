@@ -13,9 +13,11 @@ class AirflowScheduler(Script):
 		env.set_params(params)
 		self.install_packages(env)
 		Logger.info(format("Installing Airflow Service"))
-		Execute(format("pip install apache-airflow[all]==1.9.0 apache-airflow[celery]==1.9.0"))
+		Execute(format("pip install {airflow_pip_params} apache-airflow[all]==1.9.0 apache-airflow[celery]==1.9.0"))
 		Execute(format("useradd {airflow_user}"), ignore_failures=True)
-		Execute(format("mkdir -p {airflow_home} && chown -R {airflow_user}:{airflow_group} {airflow_home}"))
+		Execute(format("mkdir -p {airflow_home}"))
+		airflow_make_startup_script(env)
+		Execute(format("chown -R {airflow_user}:{airflow_group} {airflow_home}"))
 		Execute(format("export AIRFLOW_HOME={airflow_home} && airflow initdb"),
 			user=params.airflow_user
 		)

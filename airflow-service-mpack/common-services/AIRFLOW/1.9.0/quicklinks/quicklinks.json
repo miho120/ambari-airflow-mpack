@@ -18,7 +18,7 @@
           "https_property": "web_server_port",
           "https_default_port": "8080",
           "regex": "^(\\d+)$",
-          "site": "airflow-webserwer-site"
+          "site": "airflow-webserver-site"
         }
       }
     ]

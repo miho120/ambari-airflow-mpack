@@ -50,7 +50,7 @@
 					<name>AIRFLOW_WORKER</name>
 					<displayName>Airflow Worker</displayName>
 					<category>SLAVE</category>
-					<cardinality>1+</cardinality>
+					<cardinality>0+</cardinality>
 					<commandScript>
 						<script>scripts/airflow_worker_control.py</script>
 						<scriptType>PYTHON</scriptType>
