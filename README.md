@@ -16,6 +16,17 @@ ambari-server install-mpack --mpack=airflow-service-mpack.tar.gz
 ambari-server start
 ```
 
+#### Upgrading Apache Aiflow Mpack:
+1. Stop Ambari server.
+2. Upgrade the Apache Airflow Mpack on Ambari server.
+3. Start Ambari server.
+
+```
+ambari-server stop
+ambari-server upgrade-mpack --mpack=airflow-service-mpack.tar.gz
+ambari-server start
+```
+
 ### Installing Apache Airflow from Ambari:
 1. Action - Add service.
 2. Select Apache Airflow service.
