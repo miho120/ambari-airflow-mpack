@@ -14,12 +14,14 @@
    limitations under the License.
 -->
 <metainfo>
-    <schemaVersion>2.0</schemaVersion>
-    <services>
-        <service>
-            <name>AIRFLOW</name>
-            <version>1.9.0</version>
-            <extends>common-services/AIRFLOW/1.9.0</extends>
-        </service>
-    </services>
+    <stacks>
+        <stack>
+            <name>HDP</name>
+            <version>2.6</version>
+        </stack>
+        <stack>
+            <name>HDP</name>
+            <version>3.0</version>
+        </stack>
+    </stacks>
 </metainfo>

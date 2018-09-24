@@ -18,31 +18,31 @@
 <configuration supports_final="true">
   <!--Configuration options for user authentication into the web application-->
   <property>
-    <name>kerberos_ccache</name>
+    <name>ccache</name>
     <value>/tmp/airflow_krb5_ccache</value>
     <display-name>Ccache</display-name>
     <description></description>
   </property>
   <property>
-    <name>kerberos_principal</name>
+    <name>principal</name>
     <value>airflow</value>
     <display-name>Principal</display-name>
     <description></description>
   </property>
   <property>
-    <name>kerberos_reinit_frequency</name>
+    <name>reinit_frequency</name>
     <value>3600</value>
     <display-name>Reinit frequency</display-name>
     <description></description>
   </property>
   <property>
-    <name>kerberos_kinit_path</name>
+    <name>kinit_path</name>
     <value>kinit</value>
     <display-name>Kerberos kinit path</display-name>
     <description></description>
   </property>
   <property>
-    <name>kerberos_keytab</name>
+    <name>keytab</name>
     <value>airflow.keytab</value>
     <display-name>Keytab</display-name>
     <description></description>

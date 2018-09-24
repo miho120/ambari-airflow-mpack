@@ -22,7 +22,7 @@
 			<name>AIRFLOW</name>
 			<displayName>Airflow</displayName>
 			<comment>Airflow is a platform to programmatically author, schedule and monitor workflows.</comment>
-			<version>1.9.0</version>
+			<version>1.10.0</version>
 			<components>
 				<component>
 					<name>AIRFLOW_WEBSERVER</name>
@@ -73,6 +73,8 @@
 						<package><name>bzip2-devel</name></package>
 						<package><name>ncurses-devel</name></package>
 						<package><name>wget</name></package>
+						<package><name>which</name></package>
+						<package><name>gcc-c++</name></package>
 						<package><name>cyrus-sasl-devel</name></package>
 					</packages>
 				</osSpecific>
@@ -91,6 +93,8 @@
 						<package><name>libzip-dev</name></package>
 						<package><name>libncurses5-dev</name></package>
 						<package><name>wget</name></package>
+						<package><name>which</name></package>
+						<package><name>build-essential</name></package>
 						<package><name>libsasl2-dev</name></package>
 					</packages>
 				</osSpecific>

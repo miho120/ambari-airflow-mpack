@@ -1,7 +1,7 @@
 {
   "type": "full-release",
   "name": "airflow-ambari-mpack",
-  "version": "1.4.1",
+  "version": "1.5.1",
   "description": "Airflow Management Pack",
   "prerequisites": {
     "min_ambari_version": "2.4.0.0",
@@ -12,7 +12,7 @@
       "name": "airflow-service-definitions",
       "type": "service-definitions",
       "source_dir": "common-services",
-      "service_version": "1.9.0"
+      "service_version": "1.10.0"
     },
     {
       "name" : "airflow-extension-definitions",
@@ -26,7 +26,7 @@
       "service_versions_map": [
         {
           "service_name" : "AIRFLOW",
-          "service_version" : "1.9.0",
+          "service_version" : "1.10.0",
           "applicable_stacks" : [
             {
               "stack_name" : "HDP",
@@ -39,6 +39,10 @@
             {
               "stack_name" : "HDP",
               "stack_version" : "2.6"
+            },
+            {
+              "stack_name" : "HDP",
+              "stack_version" : "3.0"
             }
           ]
         }
