@@ -148,7 +148,7 @@
   </property>
   <property>
     <name>fernet_key</name>
-    <value>mMGXRdfFpdUZDYmt8Ur1xVmspyOkYKtBlkv91dB8SVs</value>
+    <value>mMGXRdfFpdUZDYmt8Ur1xVmspyOkYKtBlkv91dB8SVs=</value>
     <display-name>Fernet key</display-name>
     <description>Secret key to save connection passwords in the db.</description>
   </property>
