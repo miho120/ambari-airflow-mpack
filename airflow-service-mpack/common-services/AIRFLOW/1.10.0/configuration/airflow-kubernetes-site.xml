@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+       http://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<configuration supports_final="true">
+  <!--Configuration options for user authentication into the web application-->
+  <property>
+    <name>worker_container_repository</name>
+    <value></value>
+    <display-name>Worker container repository</display-name>
+    <description>The repository and tag of the Kubernetes Image for the Worker to Run.</description>
+    <value-attributes>
+      <empty-value-valid>true</empty-value-valid>
+    </value-attributes>
+  </property>
+  <property>
+    <name>worker_container_tag</name>
+    <value></value>
+    <display-name>Worker container tag</display-name>
+    <description>The repository and tag of the Kubernetes Image for the Worker to Run.</description>
+    <value-attributes>
+      <empty-value-valid>true</empty-value-valid>
+    </value-attributes>
+  </property>
+  <property>
+    <name>delete_worker_pods</name>
+    <value>True</value>
+    <display-name>Delete worker pods</display-name>
+    <description>If True (default), worker pods will be deleted upon termination.</description>
+  </property>
+  <property>
+    <name>namespace</name>
+    <value>default</value>
+    <display-name>Namespace</display-name>
+    <description>The Kubernetes namespace where airflow workers should be created. Defaults to `default`.</description>
+  </property>
+  <property>
+    <name>airflow_configmap</name>
+    <value></value>
+    <display-name>Airflow configmap</display-name>
+    <description>The name of the Kubernetes ConfigMap Containing the Airflow Configuration (this file).</description>
+    <value-attributes>
+      <empty-value-valid>true</empty-value-valid>
+    </value-attributes>
+  </property>
+  <property>
+    <name>dags_volume_subpath</name>
+    <value></value>
+    <display-name>DAGs volume subpath</display-name>
+    <description>For either git sync or volume mounted DAGs, the worker will look in this subpath for DAGs.</description>
+    <value-attributes>
+      <empty-value-valid>true</empty-value-valid>
+    </value-attributes>
+  </property>
+  <property>
+    <name>dags_volume_claim</name>
+    <value></value>
+    <display-name>DAGs volume claim</display-name>
+    <description>For DAGs mounted via a volume claim (mutually exclusive with volume claim).</description>
+    <value-attributes>
+      <empty-value-valid>true</empty-value-valid>
+    </value-attributes>
+  </property>
+  <property>
+    <name>logs_volume_subpath</name>
+    <value></value>
+    <display-name>Logs volume subpath</display-name>
+    <description>For volume mounted logs, the worker will look in this subpath for logs.</description>
+    <value-attributes>
+      <empty-value-valid>true</empty-value-valid>
+    </value-attributes>
+  </property>
+  <property>
+    <name>logs_volume_claim</name>
+    <value></value>
+    <display-name>Logs volume claim</display-name>
+    <description>A shared volume claim for the logs.</description>
+    <value-attributes>
+      <empty-value-valid>true</empty-value-valid>
+    </value-attributes>
+  </property>
+  <property>
+    <name>git_repo</name>
+    <value></value>
+    <display-name>Git repo</display-name>
+    <description>Git credentials and repository for DAGs mounted via Git (mutually exclusive with volume claim).</description>
+    <value-attributes>
+      <empty-value-valid>true</empty-value-valid>
+    </value-attributes>
+  </property>
+  <property>
+    <name>git_branch</name>
+    <value></value>
+    <display-name>Git branch</display-name>
+    <description>Git credentials and repository for DAGs mounted via Git (mutually exclusive with volume claim).</description>
+    <value-attributes>
+      <empty-value-valid>true</empty-value-valid>
+    </value-attributes>
+  </property>
+  <property>
+    <name>git_user</name>
+    <value></value>
+    <display-name>Git user</display-name>
+    <description>Git credentials and repository for DAGs mounted via Git (mutually exclusive with volume claim).</description>
+    <value-attributes>
+      <empty-value-valid>true</empty-value-valid>
+    </value-attributes>
+  </property>
+  <property>
+    <name>git_password</name>
+    <value></value>
+    <display-name>Git password</display-name>
+    <description>Git credentials and repository for DAGs mounted via Git (mutually exclusive with volume claim).</description>
+    <value-attributes>
+      <empty-value-valid>true</empty-value-valid>
+    </value-attributes>
+  </property>
+  <property>
+    <name>git_subpath</name>
+    <value></value>
+    <display-name>Git subpath</display-name>
+    <description>Git credentials and repository for DAGs mounted via Git (mutually exclusive with volume claim).</description>
+    <value-attributes>
+      <empty-value-valid>true</empty-value-valid>
+    </value-attributes>
+  </property>
+  <property>
+    <name>git_sync_container_repository</name>
+    <value>gcr.io/google-containers/git-sync-amd64</value>
+    <display-name>Git sync container repository</display-name>
+    <description>For cloning DAGs from git repositories into volumes: https://github.com/kubernetes/git-sync</description>
+  </property>
+  <property>
+    <name>git_sync_container_tag</name>
+    <value>v2.0.5</value>
+    <display-name>Git sync container tag</display-name>
+    <description>For cloning DAGs from git repositories into volumes: https://github.com/kubernetes/git-sync</description>
+  </property>
+  <property>
+    <name>git_sync_init_container_name</name>
+    <value>git-sync-clone</value>
+    <display-name>Git sync init container name</display-name>
+    <description>For cloning DAGs from git repositories into volumes: https://github.com/kubernetes/git-sync</description>
+  </property>
+  <property>
+    <name>worker_service_account_name</name>
+    <value></value>
+    <display-name>Worker service account name</display-name>
+    <description>The name of the Kubernetes service account to be associated with airflow workers, if any. Service accounts are required for workers that require access to secrets or cluster resources. See the Kubernetes RBAC documentation for more: https://kubernetes.io/docs/admin/authorization/rbac/</description>
+    <value-attributes>
+      <empty-value-valid>true</empty-value-valid>
+    </value-attributes>
+  </property>
+  <property>
+    <name>image_pull_secrets</name>
+    <value></value>
+    <display-name>Image pull secrets</display-name>
+    <description>Any image pull secrets to be given to worker pods, If more than one secret is required, provide a comma separated list: secret_a,secret_b</description>
+    <value-attributes>
+      <empty-value-valid>true</empty-value-valid>
+    </value-attributes>
+  </property>
+  <property>
+    <name>gcp_service_account_keys</name>
+    <value></value>
+    <display-name>GCP service_account keys</display-name>
+    <description>GCP Service Account Keys to be provided to tasks run on Kubernetes Executors. Should be supplied in the format: key-name-1:key-path-1,key-name-2:key-path-2</description>
+    <value-attributes>
+      <empty-value-valid>true</empty-value-valid>
+    </value-attributes>
+  </property>
+  <property>
+    <name>in_cluster</name>
+    <value>True</value>
+    <display-name>In cluster</display-name>
+    <description>Use the service account kubernetes gives to pods to connect to kubernetes cluster. It's intended for clients that expect to be running inside a pod running on kubernetes. It will raise an exception if called from a process not running in a kubernetes environment.</description>
+  </property>
+</configuration>

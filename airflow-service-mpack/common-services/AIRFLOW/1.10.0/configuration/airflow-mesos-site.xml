@@ -18,57 +18,63 @@
 <configuration supports_final="true">
   <!--Configuration options for user authentication into the web application-->
   <property>
-    <name>mesos_master</name>
+    <name>master</name>
     <value>localhost:5050</value>
     <display-name>Master</display-name>
     <description>Mesos master address which MesosExecutor will connect to.</description>
   </property>
   <property>
-    <name>mesos_framework_name</name>
+    <name>framework_name</name>
     <value>Airflow</value>
     <display-name>Framework name</display-name>
     <description>The framework name which Airflow scheduler will register itself as on mesos.</description>
   </property>
   <property>
-    <name>mesos_task_cpu</name>
+    <name>task_cpu</name>
     <value>1</value>
     <display-name>Task CPU</display-name>
     <description>Number of cpu cores required for running one task instance using 'airflow run dag_id task_id execution_date --local -p pickle_id' command on a mesos slave.</description>
   </property>
   <property>
-    <name>mesos_task_memory</name>
+    <name>task_memory</name>
     <value>256</value>
     <display-name>Task memory</display-name>
     <description>Memory in MB required for running one task instance using 'airflow run dag_id task_id execution_date --local -p pickle_id' command on a mesos slave.</description>
   </property>
   <property>
-    <name>mesos_checkpoint</name>
+    <name>checkpoint</name>
     <value>False</value>
     <display-name>Checkpoint</display-name>
     <description>Enable framework checkpointing for mesos. See http://mesos.apache.org/documentation/latest/slave-recovery/.</description>
   </property>
   <property>
-    <name>mesos_failover_timeout</name>
+    <name>failover_timeout</name>
     <value>604800</value>
     <display-name>Failover timeout</display-name>
     <description>Failover timeout in milliseconds. When checkpointing is enabled and this option is set, Mesos waits until the configured timeout for the MesosExecutor framework to re-register after a failover. Mesos shuts down running tasks if the MesosExecutor framework fails to re-register within this timeframe.</description>
   </property>
   <property>
-    <name>mesos_authenticate</name>
+    <name>authenticate</name>
     <value>False</value>
     <display-name>Authenticate</display-name>
     <description>Enable framework authentication for mesos. See http://mesos.apache.org/documentation/latest/configuration/.</description>
   </property>
   <property>
-    <name>mesos_default_principal</name>
+    <name>default_principal</name>
     <value>admin</value>
     <display-name>Default principal</display-name>
     <description>Mesos credentials, if authentication is enabled.</description>
   </property>
   <property>
-    <name>mesos_default_secret</name>
+    <name>default_secret</name>
     <value>admin</value>
     <display-name>Default secret</display-name>
     <description>Mesos credentials, if authentication is enabled.</description>
+  </property>
+  <property>
+    <name>docker_image_slave</name>
+    <value>puckel/docker-airflow</value>
+    <display-name>Docker image slave</display-name>
+    <description>Optional Docker Image to run on slave before running the command. This image should be accessible from mesos slave i.e mesos slave should be able to pull this docker image before executing the command..</description>
   </property>
 </configuration>

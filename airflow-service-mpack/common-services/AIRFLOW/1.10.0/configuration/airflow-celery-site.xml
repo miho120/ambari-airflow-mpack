@@ -42,7 +42,7 @@
     <description>The Celery broker URL. Celery supports RabbitMQ, Redis and experimentally a sqlalchemy database. Refer to the Celery documentation for more information.</description>
   </property>
   <property>
-    <name>celery_result_backend</name>
+    <name>result_backend</name>
     <value>db+mysql://airflow:airflow@localhost:3306/airflow</value>
     <display-name>Celery result backend</display-name>
     <description>Another key Celery setting.</description>
@@ -52,6 +52,15 @@
     <value>0.0.0.0</value>
     <display-name>Flower host</display-name>
     <description>Celery Flower is a sweet UI for Celery. Airflow has a shortcut to start it `airflow flower`. This defines the IP that Celery Flower runs on.</description>
+  </property>
+  <property>
+    <name>flower_url_prefix</name>
+    <value></value>
+    <display-name>Flower URL prefix</display-name>
+    <description>The root URL for Flower. Ex: flower_url_prefix = /flower.</description>
+    <value-attributes>
+      <empty-value-valid>true</empty-value-valid>
+    </value-attributes>
   </property>
   <property>
     <name>flower_port</name>
@@ -70,5 +79,38 @@
     <value>airflow.config_templates.default_celery.DEFAULT_CELERY_CONFIG</value>
     <display-name>Celery config options</display-name>
     <description>Import path for celery configuration options.</description>
+  </property>
+  <property>
+    <name>ssl_active</name>
+    <value>False</value>
+    <display-name>SSL active</display-name>
+    <description>In case of using SSL.</description>
+  </property>
+  <property>
+    <name>ssl_key</name>
+    <value></value>
+    <display-name>SSL key</display-name>
+    <description></description>
+    <value-attributes>
+      <empty-value-valid>true</empty-value-valid>
+    </value-attributes>
+  </property>
+  <property>
+    <name>ssl_cert</name>
+    <value></value>
+    <display-name>SSL cert</display-name>
+    <description></description>
+    <value-attributes>
+      <empty-value-valid>true</empty-value-valid>
+    </value-attributes>
+  </property>
+  <property>
+    <name>ssl_cacert</name>
+    <value></value>
+    <display-name>SSL cacert</display-name>
+    <description></description>
+    <value-attributes>
+      <empty-value-valid>true</empty-value-valid>
+    </value-attributes>
   </property>
 </configuration>

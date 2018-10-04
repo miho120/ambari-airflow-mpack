@@ -54,6 +54,12 @@
     </value-attributes>
   </property>
   <property>
+    <name>web_server_master_timeout</name>
+    <value>120</value>
+    <display-name>Web server master timeout</display-name>
+    <description>Number of seconds the webserver waits before killing gunicorn master that doesn't respond.</description>
+  </property>
+  <property>
     <name>web_server_worker_timeout</name>
     <value>120</value>
     <display-name>Web server worker timeout</display-name>
@@ -160,6 +166,24 @@
     <value>100</value>
     <display-name>Page size</display-name>
     <description>Consistent page size across all listing views in the UI.</description>
+  </property>
+  <property>
+    <name>rbac</name>
+    <value>False</value>
+    <display-name>Rbac</display-name>
+    <description>Use FAB-based webserver with RBAC feature.</description>
+  </property>
+  <property>
+    <name>navbar_color</name>
+    <value>#007A87</value>
+    <display-name>Navbar color</display-name>
+    <description>Define the color of navigation bar.</description>
+  </property>
+  <property>
+    <name>default_dag_run_display_number</name>
+    <value>25</value>
+    <display-name>Default dag run display number</display-name>
+    <description>Default dagrun to show in UI.</description>
   </property>
 
 </configuration>

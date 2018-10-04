@@ -18,34 +18,10 @@
 <configuration supports_final="true">
   <!--Configuration options for user authentication into the web application-->
   <property>
-    <name>cluster_address</name>
-    <value>127.0.0.1:8786</value>
-    <display-name>Cluster address</display-name>
-    <description>The IP address and port of the Dask cluster's scheduler.</description>
-  </property>
-  <property>
-    <name>tls_ca</name>
+    <name>backend</name>
     <value></value>
-    <display-name>TLS CA</display-name>
-    <description>TLS/ SSL settings to access a secured Dask scheduler.</description>
-    <value-attributes>
-      <empty-value-valid>true</empty-value-valid>
-    </value-attributes>
-  </property>
-  <property>
-    <name>tls_cert</name>
-    <value></value>
-    <display-name>TLS cert</display-name>
-    <description>TLS/ SSL settings to access a secured Dask scheduler.</description>
-    <value-attributes>
-      <empty-value-valid>true</empty-value-valid>
-    </value-attributes>
-  </property>
-  <property>
-    <name>tls_key</name>
-    <value></value>
-    <display-name>TLS key</display-name>
-    <description>TLS/ SSL settings to access a secured Dask scheduler.</description>
+    <display-name>Backend</display-name>
+    <description>What lineage backend to use.</description>
     <value-attributes>
       <empty-value-valid>true</empty-value-valid>
     </value-attributes>

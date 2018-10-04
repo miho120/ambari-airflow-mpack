@@ -42,6 +42,12 @@
     <description>After how much time a new DAGs should be picked up from the filesystem.</description>
   </property>
   <property>
+    <name>min_file_parsing_loop_time</name>
+    <value>1</value>
+    <display-name>Min file process loop time</display-name>
+    <description>How many seconds to wait between file-parsing loops to prevent the logs from being spammed.</description>
+  </property>
+  <property>
     <name>dag_dir_list_interval</name>
     <value>300</value>
     <display-name>Dag dir list interval</display-name>
@@ -108,7 +114,7 @@
     <description>The scheduler can run multiple threads in parallel to schedule dags. This defines how many threads will run.</description>
   </property>
   <property>
-    <name>scheduler_authenticate</name>
+    <name>authenticate</name>
     <value>False</value>
     <display-name>Authenticate</display-name>
     <description>Authenticate.</description>

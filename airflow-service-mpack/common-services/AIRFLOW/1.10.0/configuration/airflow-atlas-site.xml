@@ -18,34 +18,39 @@
 <configuration supports_final="true">
   <!--Configuration options for user authentication into the web application-->
   <property>
-    <name>cluster_address</name>
-    <value>127.0.0.1:8786</value>
-    <display-name>Cluster address</display-name>
-    <description>The IP address and port of the Dask cluster's scheduler.</description>
+    <name>sasl_enabled</name>
+    <value>False</value>
+    <display-name>Sasl enabled</display-name>
+    <description></description>
   </property>
   <property>
-    <name>tls_ca</name>
+    <name>host</name>
     <value></value>
-    <display-name>TLS CA</display-name>
-    <description>TLS/ SSL settings to access a secured Dask scheduler.</description>
+    <display-name>Host</display-name>
+    <description></description>
+    <value-attributes>
+      <empty-value-valid>true</empty-value-valid>
+    </value-attributes>
+  </property>
+  <name>port</name>
+    <value>21000</value>
+    <display-name>Port</display-name>
+    <description></description>
+  </property>
+  <property>
+    <name>username</name>
+    <value></value>
+    <display-name>Username</display-name>
+    <description></description>
     <value-attributes>
       <empty-value-valid>true</empty-value-valid>
     </value-attributes>
   </property>
   <property>
-    <name>tls_cert</name>
+    <name>password</name>
     <value></value>
-    <display-name>TLS cert</display-name>
-    <description>TLS/ SSL settings to access a secured Dask scheduler.</description>
-    <value-attributes>
-      <empty-value-valid>true</empty-value-valid>
-    </value-attributes>
-  </property>
-  <property>
-    <name>tls_key</name>
-    <value></value>
-    <display-name>TLS key</display-name>
-    <description>TLS/ SSL settings to access a secured Dask scheduler.</description>
+    <display-name>Password</display-name>
+    <description></description>
     <value-attributes>
       <empty-value-valid>true</empty-value-valid>
     </value-attributes>

@@ -38,9 +38,24 @@
     <description>The folder where airflow should store its log files.</description>
   </property>
   <property>
+    <name>remote_logging</name>
+    <value>False</value>
+    <display-name>Remote logging</display-name>
+    <description>If remote_logging is set to true, see UPDATING.md for additional configuration requirements.</description>
+  </property>
+  <property>
     <name>remote_log_conn_id</name>
     <value></value>
     <display-name>Remote log connection id</display-name>
+    <description>Airflow can store logs remotely in AWS S3 or Google Cloud Storage. Users must supply an Airflow connection id that provides access to the storage location.</description>
+    <value-attributes>
+      <empty-value-valid>true</empty-value-valid>
+    </value-attributes>
+  </property>
+  <property>
+    <name>remote_base_log_folder</name>
+    <value></value>
+    <display-name>Remote base log folder</display-name>
     <description>Airflow can store logs remotely in AWS S3 or Google Cloud Storage. Users must supply an Airflow connection id that provides access to the storage location.</description>
     <value-attributes>
       <empty-value-valid>true</empty-value-valid>
@@ -57,6 +72,12 @@
     <value>INFO</value>
     <display-name>Logging level</display-name>
     <description>Logging level.</description>
+  </property>
+  <property>
+    <name>fab_logging_level</name>
+    <value>WARN</value>
+    <display-name>Fab logging level</display-name>
+    <description>Fab logging level.</description>
   </property>
   <property>
     <name>logging_config_class</name>
@@ -79,6 +100,30 @@
     <display-name>Simple log format</display-name>
     <description>Simple log format.</description>
   </property>
+    <property>
+    <name>log_filename_template</name>
+    <value>{{ ti.dag_id }}/{{ ti.task_id }}/{{ ts }}/{{ try_number }}.log</value>
+    <display-name>Log filename format</display-name>
+    <description>We need to escape the curly braces by adding an additional curly brace.</description>
+  </property>
+    <property>
+    <name>log_processor_filename_template</name>
+    <value>{{ filename }}.log</value>
+    <display-name>Log processor filename template</display-name>
+    <description>We need to escape the curly braces by adding an additional curly brace.</description>
+  </property>
+    <property>
+    <name>hostname_callable</name>
+    <value>socket:getfqdn</value>
+    <display-name>Hostname callable</display-name>
+    <description>Hostname by providing a path to a callable, which will resolve the hostname.</description>
+  </property>
+    <property>
+    <name>default_timezone</name>
+    <value>utc</value>
+    <display-name>Default timezone</display-name>
+    <description>Default timezone in case supplied date times are naive. Can be utc (default), system, or any IANA timezone string (e.g. Europe/Amsterdam).</description>
+  </property>
   <property>
     <name>executor</name>
     <value>SequentialExecutor</value>
@@ -93,6 +138,12 @@
     <description>The SqlAlchemy connection string to the metadata database. SqlAlchemy supports many different database engine, more information their website.</description>
   </property>
   <property>
+    <name>sql_alchemy_pool_enabled</name>
+    <value>True</value>
+    <display-name>SQL alchemy pool enabled</display-name>
+    <description>If SqlAlchemy should pool database connections.</description>
+  </property>
+  <property>
     <name>sql_alchemy_pool_size</name>
     <value>5</value>
     <display-name>SQL alchemy pool size</display-name>
@@ -103,6 +154,12 @@
     <value>3600</value>
     <display-name>SQL alchemy pool recycle</display-name>
     <description>The SqlAlchemy pool recycle is the number of seconds a connection can be idle in the pool before it is invalidated. This config does not apply to sqlite.</description>
+  </property>
+  <property>
+    <name>sql_alchemy_reconnect_timeout</name>
+    <value>300</value>
+    <display-name>SQL alchemy pool timeout</display-name>
+    <description>How many seconds to retry re-establishing a DB connection after disconnects. Setting this to 0 disables retries.</description>
   </property>
   <property>
     <name>parallelism</name>
@@ -189,6 +246,12 @@
     </value-attributes>
   </property>
   <property>
+    <name>secure_mode</name>
+    <value>False</value>
+    <display-name>Secure mode</display-name>
+    <description>If set to False enables some unsecure features like Charts and Ad Hoc Queries. In 2.0 will default to True.</description>
+  </property>
+  <property>
     <name>unit_test_mode</name>
     <value>False</value>
     <display-name>Unit test mode</display-name>
@@ -196,7 +259,7 @@
   </property>
   <property>
     <name>task_log_reader</name>
-    <value>file.task</value>
+    <value>task</value>
     <display-name>Task log reader</display-name>
     <description>Name of handler to read task instance logs. Default to use file task handler.</description>
   </property>
@@ -211,5 +274,11 @@
     <value>60</value>
     <display-name>Killed task cleanup time</display-name>
     <description>When a task is killed forcefully, this is the amount of time in seconds that it has to cleanup after it is sent a SIGTERM, before it is SIGKILLED.</description>
+  </property>
+  <property>
+    <name>dag_run_conf_overrides_params</name>
+    <value>False</value>
+    <display-name>DAG run conf overrides params</display-name>
+    <description>Whether to override params with dag_run.conf. If you pass some key-value pairs through `airflow backfill -c` or `airflow trigger_dag -c`, the key-value pairs will override the existing ones in params.</description>
   </property>
 </configuration>

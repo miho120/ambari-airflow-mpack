@@ -117,6 +117,13 @@
 				<config-type>airflow-scheduler-site</config-type>
 				<config-type>airflow-smtp-site</config-type>
 				<config-type>airflow-webserver-site</config-type>
+				<config-type>airflow-lineage-site</config-type>
+				<config-type>airflow-atlas-site</config-type>
+				<config-type>airflow-hive-site</config-type>
+				<config-type>airflow-celerybrokertransportoptions-site</config-type>
+				<config-type>airflow-elasticsearch-site</config-type>
+				<config-type>airflow-kubernetes-site</config-type>
+				<config-type>airflow-kubernetessecrets-site</config-type>
 			</configuration-dependencies>
 			<restartRequiredAfterChange>true</restartRequiredAfterChange>
 

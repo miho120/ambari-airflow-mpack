@@ -164,8 +164,15 @@ def airflow_configure(env):
 		"mesos" : params.config['configurations']['airflow-mesos-site'],
 		"kerberos" : params.config['configurations']['airflow-kerberos-site'],
 		"github_enterprise" : params.config['configurations']['airflow-githubenterprise-site'],
-		"admin" : params.config['configurations']['airflow-admin-site']
-		})
+		"admin" : params.config['configurations']['airflow-admin-site'],
+		"lineage" : params.config['configurations']['airflow-lineage-site'],
+		"atlas" : params.config['configurations']['airflow-atlas-site'],
+		"hive" : params.config['configurations']['airflow-hive-site'],
+		"celery_broker_transport_options" : params.config['configurations']['airflow-celerybrokertransportoptions-site'],
+		"elasticsearch" : params.config['configurations']['airflow-elasticsearch-site'],
+		"kubernetes" : params.config['configurations']['airflow-kubernetes-site'],
+		"kubernetes_secrets" : params.config['configurations']['airflow-kubernetessecrets-site']
+	})
 
 	for section, value in airflow_config.items():
 		airflow_config_file += format("[{section}]\n{value}\n")
