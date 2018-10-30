@@ -39,7 +39,7 @@
 					<name>AIRFLOW_SCHEDULER</name>
 					<displayName>Airflow Scheduler</displayName>
 					<category>MASTER</category>
-					<cardinality>1+</cardinality>
+					<cardinality>1</cardinality>
 					<commandScript>
 						<script>scripts/airflow_scheduler_control.py</script>
 						<scriptType>PYTHON</scriptType>
