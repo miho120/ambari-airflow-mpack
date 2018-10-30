@@ -32,7 +32,8 @@
       <empty-value-valid>true</empty-value-valid>
     </value-attributes>
   </property>
-  <name>port</name>
+  <property>
+    <name>port</name>
     <value>21000</value>
     <display-name>Port</display-name>
     <description></description>
