@@ -34,6 +34,16 @@
 						<scriptType>PYTHON</scriptType>
 						<timeout>1200</timeout>
 					</commandScript>
+					<customCommands>
+						<customCommand>
+							<name>Initdb</name>
+							<background>false</background>
+							<commandScript>
+								<script>scripts/airflow_webserver_control.py</script>
+								<scriptType>PYTHON</scriptType>
+							</commandScript>
+						</customCommand>
+					</customCommands>
 				</component>
 				<component>
 					<name>AIRFLOW_SCHEDULER</name>
